@@ -73,6 +73,8 @@ export const StyledNav = styled.nav`
 
                 &:hover {
                     color: ${({theme}) => theme.headerText};
+                    border-bottom: 4px solid ${({theme}) => theme.mainAccent};
+                    padding-bottom: 2.5rem;
                 }
             }
             

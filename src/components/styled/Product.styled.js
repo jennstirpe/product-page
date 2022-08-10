@@ -118,6 +118,15 @@ export const StyledProduct = styled.main`
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    transition: all 200ms linear;
+
+                    &:hover {
+                        cursor: pointer;
+
+                        svg path {
+                            opacity: .5;
+                        }
+                    }
                 }
 
                 .quantity-amt {
@@ -137,6 +146,7 @@ export const StyledProduct = styled.main`
                     justify-content: center;
                     align-items: center;
                     background: ${({theme}) => theme.mainAccent};
+                    transition: all 200ms linear;
 
                     span {
                         color: white;
@@ -147,6 +157,12 @@ export const StyledProduct = styled.main`
 
                     svg path {
                         fill: white;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: .75;
+                        box-shadow: 0rem 1rem .75rem rgba(255, 125, 26, .4);
                     }
                 }
             }
@@ -197,6 +213,11 @@ export const StyledProduct = styled.main`
                         width: 4.75rem;
                         height: 4.75rem;
                         border-radius: .6rem;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        opacity: .75;
                     }
                 }
                 

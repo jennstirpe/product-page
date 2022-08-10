@@ -43,7 +43,7 @@ export default function Product() {
             <ul className="thumbnails">
                 {
                     thumbnails.map(img => {
-                        return <li className="thumbnail active"><img src={img} alt="product image" /></li>
+                        return <li className="thumbnail"><img src={img} alt="product image" /></li>
                     })
                 }
             </ul>
