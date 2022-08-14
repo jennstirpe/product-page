@@ -16,6 +16,7 @@ export const StyledHeader = styled.header`
         width: 5rem;
         height: 4rem;
         position: relative;
+        
 
         #cart {
             background: none;
@@ -59,5 +60,9 @@ export const StyledHeader = styled.header`
     @media (min-width: 800px) {
         height: 6.5rem;
         border-bottom: 1px solid ${({theme}) => theme.subText};
+
+        .user-details {
+            margin-right: 10%;
+        }
     }
 `;

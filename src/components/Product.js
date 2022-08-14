@@ -15,30 +15,46 @@ import img4Sm from "../images/image-product-4-thumbnail.jpg";
 export default function Product() {
     const productImgs = [img1, img2, img3, img4];
     const thumbnails = [img1Sm, img2Sm, img3Sm, img4Sm];
-    const [activeImg, setActiveImg] = useState(productImgs[0]);
-    const [activeThumb, setActiveThumb] = useState(thumbnails[0]);
+
+    // const [activeImg, setActiveImg] = useState(productImgs[0]);
+
+    const [activeImg, setActiveImg] = useState(productImgs[0]); // +1 for next, -1 for prev
+
+    const [activeIndex, setActiveIndex] = useState(0); // +1 for next, -1 for prev
+   
 
 
     function nextImg() {
-        // const currentImg = activeImg;
+        const currentIndex = activeIndex;
+        const newImgIndex = currentIndex + 1;
 
-        // for(const img of productsImgs) {
-        //     if(img ===)
-        // }
-
-    
-        // setActiveImg()
+        if(newImgIndex > productImgs.length - 1) {
+            setActiveIndex(0);
+            setActiveImg([productImgs[0]]);
+        } else {
+            setActiveIndex(newImgIndex);
+            setActiveImg([productImgs[newImgIndex]]);
+        }
     }
 
     function prevImg() {
+        const currentIndex = activeIndex;
+        const newImgIndex = currentIndex - 1;
 
+        if(newImgIndex < 0) {
+            setActiveIndex(productImgs.length - 1);
+            setActiveImg(productImgs[productImgs.length - 1]);
+        } else {
+            setActiveIndex(newImgIndex);
+            setActiveImg([productImgs[newImgIndex]]);
+        }
     }
 
   return (
     <StyledProduct>
         <section className="gallery">
-            <button className="gallery-btn prev" aria-label="previous image"><svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
-            <button className="gallery-btn next" aria-label="next image"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
+            <button onClick={prevImg} className="gallery-btn prev" aria-label="previous image"><svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
+            <button onClick={nextImg} className="gallery-btn next" aria-label="next image"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg></button>
             <img className="product-img" src={activeImg} alt="Product image" />
             <ul className="thumbnails">
                 {
