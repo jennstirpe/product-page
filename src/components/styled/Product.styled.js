@@ -218,6 +218,7 @@ export const StyledProduct = styled.main`
                     width: 4.75rem;
                     height: 4.75rem;
                     box-sizing: content-box;
+                    transition: 500ms;
 
                     img {
                         width: 4.75rem;
@@ -227,7 +228,8 @@ export const StyledProduct = styled.main`
 
                     &:hover {
                         cursor: pointer;
-                        opacity: .75;
+                        opacity: .7;
+
                     }
                 }
                 
@@ -243,6 +245,47 @@ export const StyledProduct = styled.main`
 
             }
         }
+
+
+        .lightbox {
+           position: absolute;
+           top: 0;
+           z-index: 10;
+           background: rgba(0, 0, 0, .75);
+           min-height: 100vh;
+           width: 100%;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+
+           .lightbox-close {
+               position: relative;
+               font-size: 2rem;
+               top: -0.5rem;
+               right: -12rem;
+               color: white;
+               transition: 250ms;
+
+               &:hover {
+                   cursor: pointer;
+                   opacity: .75;
+               }
+           }
+
+           .gallery-btn {
+                display: block;
+                top: 40%;
+            }
+
+            .next {
+                right: 1.75rem;
+            }
+            
+            .prev {
+                left: 1.75rem;
+            }
+        }
+        
 
         .product-details {
             width: 50%;

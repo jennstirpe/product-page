@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
         height: 100vh;
         width: 100vw;
         color: ${({theme}) => theme.mainText};
+        position: absolute;
     }
 
 `;
