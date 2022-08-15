@@ -7,21 +7,11 @@ import img2 from "../images/image-product-2.jpg";
 import img3 from "../images/image-product-3.jpg";
 import img4 from "../images/image-product-4.jpg";
 
-import img1Sm from "../images/image-product-1-thumbnail.jpg";
-import img2Sm from "../images/image-product-2-thumbnail.jpg";
-import img3Sm from "../images/image-product-3-thumbnail.jpg";
-import img4Sm from "../images/image-product-4-thumbnail.jpg";
-
-
 export default function Product() {
     const productImgs = [img1, img2, img3, img4];
-    const thumbnails = [img1Sm, img2Sm, img3Sm, img4Sm];
 
     const [activeImg, setActiveImg] = useState(productImgs[0]); 
     const [activeIndex, setActiveIndex] = useState(0);
-
-    const [activeThumb, setActiveThumb] = useState(thumbnails[0]); 
-    const [activeThumbIndex, setActiveThumbIndex] = useState(0);
 
     const [quantityCount, setQuantityCount] = useState(1);
 
@@ -55,7 +45,6 @@ export default function Product() {
     function increaseQuantity() {
         const prevQuantity = quantityCount;
         setQuantityCount(prevQuantity + 1);
-
     }
 
     function decreaseQuantity() {
@@ -66,9 +55,13 @@ export default function Product() {
         } else {
             setQuantityCount(prevQuantity - 1);
         }
-        
-
     }
+
+
+    function changeMainImg(img) {
+        setActiveImg(img);
+    }
+
 
   return (
     <StyledProduct>
@@ -78,8 +71,9 @@ export default function Product() {
             <img className="product-img" src={activeImg} alt="Product image" />
             <ul className="thumbnails">
                 {
-                    thumbnails.map(img => {
-                        return <li key={uuid()} className="thumbnail"><img src={img} alt="product image" /></li>
+                    productImgs.map(img => {
+                        return <li key={uuid()} className={img == activeImg ? "thumbnail active" : "thumbnail"} 
+                        ><img onClick={() => changeMainImg(img)} src={img} alt="product image" /></li>
                     })
                 }
             </ul>
