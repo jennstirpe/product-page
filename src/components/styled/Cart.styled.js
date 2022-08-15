@@ -14,7 +14,6 @@ export const StyledCart = styled.section`
         color: ${({theme}) => theme.headerText};
         font-size: 1rem;
         padding: 1.5rem;
-        /* border-bottom: 2px solid ${({theme}) => theme.subText}; */
         border-bottom: 2px solid rgb(225, 225, 225);
     }
 

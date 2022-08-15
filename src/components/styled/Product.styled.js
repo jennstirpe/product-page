@@ -17,7 +17,12 @@ export const StyledProduct = styled.main`
             width: 2.5rem;
             border-radius: 50%;
             border: none;
-]
+
+            &:hover {
+                cursor: pointer;
+                background-color: #ddd;
+            }
+
         }
 
         .next {
@@ -26,6 +31,7 @@ export const StyledProduct = styled.main`
             svg {
                 margin: .15rem 0 0 .1rem;
             }
+
         }
         .prev {
             left: 1rem;
@@ -194,6 +200,10 @@ export const StyledProduct = styled.main`
                 width: 25rem;
                 border-radius: .75rem;
                 margin-bottom: 1.5rem;
+
+                &:hover {
+                    cursor: pointer;
+                }
             }
 
             .thumbnails {

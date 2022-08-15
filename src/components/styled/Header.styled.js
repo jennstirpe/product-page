@@ -16,8 +16,13 @@ export const StyledHeader = styled.header`
         width: 5rem;
         height: 4rem;
         position: relative;
-        
 
+        .cart-div {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
         #cart {
             background: none;
             border: none;
