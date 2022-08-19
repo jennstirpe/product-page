@@ -28,7 +28,7 @@ export const StyledCart = styled.section`
         width: 20.5rem;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        margin: .5rem 0;
 
            .product-img {
                width: 4rem;
@@ -37,6 +37,8 @@ export const StyledCart = styled.section`
 
            .product-details {
                color: ${({theme}) => theme.mainText};
+               margin-left: .5rem;
+               margin-right: auto;
                
                h4 {
                 font-weight: 400;
