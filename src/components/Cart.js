@@ -1,36 +1,35 @@
 import { StyledCart } from "./styled/Cart.styled";
-
 import productImg from "../images/image-product-1.jpg";
 
-export default function Cart() {
-    const itemPrice = 125;
-    const quantity = 3;
-    const totalCost = itemPrice * quantity;
+import CartItem from "./CartItem";
+
+export default function Cart({ cartContents }) {
 
 
-  return (
-    <StyledCart>
-        <h3>Cart</h3>
-        {/* if item in cart, */}
-        <div className="cart">
-            <div className="cart-item">
-                <img className="product-img" src={productImg} alt="Product image" />
-                <div className="product-details">
-                    <h4>Fall Limited Edition Sneakers</h4>
-                    <p className="product-cost">
-                        ${itemPrice} x {quantity} <span className="product-total">${totalCost}</span>
-                    </p>
+    if (cartContents.length > 0) {
+        return (
+        <StyledCart>
+            <h3>Cart</h3>
+            <div className="cart">
+                {
+                    cartContents.map(item => {
+                        return <CartItem key={item.name} itemName={item.name} itemPrice={item.price} quantity={item.quantity} productImg={productImg} />
+                    })
+                }
+                        
+                <div className="checkout">
+                    <button className="checkout-btn">Checkout</button>
                 </div>
-                <svg className="delete" width="14" height="16" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><defs><path d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z" id="a"/></defs><use fill="#C3CAD9" fillRule="nonzero" xlinkHref="#a"/></svg>
             </div>
-            <div className="checkout">
-                <button className="checkout-btn">Checkout</button>
-            </div>
-        </div>
-        {/* if cart is empty */}
-        <div className="empty-cart">
-            <p className="empty-message">Your cart is empty</p>
-        </div>
-    </StyledCart>
-  )
+        </StyledCart>
+    )} else {
+        return (
+            <StyledCart>
+                <h3>Cart</h3>
+                <div className="empty-cart">
+                    <p className="empty-message">Your cart is empty</p>
+                </div> 
+            </StyledCart>
+        )       
+    }
 }

@@ -49,9 +49,10 @@ export const StyledCart = styled.section`
            }
 
            .delete {
+               transition: 1s;
 
                 &:hover {
-                    cursor: pointer; 
+                    cursor: pointer;
 
                     path {
                         fill: ${({theme}) => theme.headerText};
@@ -87,7 +88,6 @@ export const StyledCart = styled.section`
         display: flex;
         justify-content: center;
         align-items: center;
-        display: none;
 
         .empty-message {
             font-weight: 700;
