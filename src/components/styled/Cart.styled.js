@@ -22,47 +22,7 @@ export const StyledCart = styled.section`
         flex-direction: column;
         align-items: center;
         padding: 1.5rem;
-        
-
-       .cart-item {
-        width: 20.5rem;
-        display: flex;
-        align-items: center;
-        margin: .5rem 0;
-
-           .product-img {
-               width: 4rem;
-               border-radius: .5rem;
-           }
-
-           .product-details {
-               color: ${({theme}) => theme.mainText};
-               margin-left: .5rem;
-               margin-right: auto;
-               
-               h4 {
-                font-weight: 400;
-               }
-
-               .product-total {
-                    color: ${({theme}) => theme.headerText};
-                    font-weight: 700;
-               }  
-           }
-
-           .delete {
-               transition: 1s;
-
-                &:hover {
-                    cursor: pointer;
-
-                    path {
-                        fill: ${({theme}) => theme.headerText};
-                    }
-                }
-                
-           }
-       }
+       }       
 
        .checkout {
            .checkout-btn {

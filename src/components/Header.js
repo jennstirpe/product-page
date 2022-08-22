@@ -5,7 +5,7 @@ import { StyledHeader } from './styled/Header.styled';
 import Nav from './Nav';
 import Cart from './Cart';
 
-export default function Header({ cartContents, itemCount }) {
+export default function Header({ cartContents, itemCount, removeFromCart }) {
   const [ cartActive, setCartActive] = useState(false);
 
   return (
@@ -13,7 +13,7 @@ export default function Header({ cartContents, itemCount }) {
               
         <Nav />
         
-        { cartActive && <Cart cartContents={cartContents} /> }
+        { cartActive && <Cart cartContents={cartContents} removeFromCart={removeFromCart} /> }
 
         <div className="user-details">
             <div className="cart-div" onClick={() => setCartActive(!cartActive)}>

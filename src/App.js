@@ -14,28 +14,28 @@ import Product from "./components/Product";
 const LOCAL_STORAGE_KEY = "ecommerceSite.cart";
 
 function App() {
-  // const [ cartContents, setCartContents ] = useState([ 
-  //   {
-  //     id: "testId",
-  //     name: "testName",
-  //     price: 100,
-  //     quantity: 2,
-  //     img: testImg
-  //   },
-  //   {
-  //     id: "testId2",
-  //     name: "testName2 test testName testNaming",
-  //     price: 150,
-  //     quantity: 1,
-  //     img: testImg
-  //   }  
-  // ]);
+  const [ cartContents, setCartContents ] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? [ 
+    {
+      id: "testId",
+      name: "testName",
+      price: 100,
+      quantity: 2,
+      img: testImg
+    },
+    {
+      id: "testId2",
+      name: "testName2 test testName testNaming",
+      price: 150,
+      quantity: 1,
+      img: testImg
+    }  
+  ]);
 
-  const [ cartContents, setCartContents ] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
+  // const [ cartContents, setCartContents ] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
   const [ itemCount, setItemCount ] = useState(0);
 
   useEffect(() => {
-    if(cartContents.length !== 0) {
+    if(cartContents !== null) {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cartContents));
     }
     getItemCount();
@@ -76,13 +76,18 @@ function App() {
     }
   }
 
+  function removeFromCart(id) {
+    const remainingItems = cartContents.filter(item  => item.id !== id);
+    setCartContents(remainingItems);
+  }
+
 
   return (
     <ThemeProvider theme={lightTheme}>
       <>
           <GlobalStyles />
             
-            <Header cartContents={cartContents} itemCount={itemCount} />
+            <Header cartContents={cartContents} itemCount={itemCount} removeFromCart={removeFromCart} />
 
             <Product addToCart={addToCart} />
             

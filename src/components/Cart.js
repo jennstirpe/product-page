@@ -3,7 +3,7 @@ import productImg from "../images/image-product-1.jpg";
 
 import CartItem from "./CartItem";
 
-export default function Cart({ cartContents }) {
+export default function Cart({ cartContents, removeFromCart }) {
 
 
     if (cartContents.length > 0) {
@@ -13,7 +13,7 @@ export default function Cart({ cartContents }) {
             <div className="cart">
                 {
                     cartContents.map(item => {
-                        return <CartItem key={item.name} itemName={item.name} itemPrice={item.price} quantity={item.quantity} productImg={productImg} />
+                        return <CartItem key={item.id} id={item.id} removeFromCart={removeFromCart} itemName={item.name} itemPrice={item.price} quantity={item.quantity} productImg={productImg} />
                     })
                 }
                         
