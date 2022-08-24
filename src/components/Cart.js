@@ -3,8 +3,13 @@ import productImg from "../images/image-product-1.jpg";
 
 import CartItem from "./CartItem";
 
-export default function Cart({ cartContents, removeFromCart }) {
+export default function Cart({ cartContents, removeFromCart, openCheckout }) {
 
+
+    function handleOpenCheckout(e) {
+        e.preventDefault()
+        openCheckout()
+    }
 
     if (cartContents.length > 0) {
         return (
@@ -18,7 +23,7 @@ export default function Cart({ cartContents, removeFromCart }) {
                 }
                         
                 <div className="checkout">
-                    <button className="checkout-btn">Checkout</button>
+                    <button onClick={handleOpenCheckout} className="checkout-btn">Checkout</button>
                 </div>
             </div>
         </StyledCart>

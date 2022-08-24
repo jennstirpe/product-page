@@ -8,6 +8,7 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     position: relative;
+    border: 1px solid red;
 
     .user-details {
         display: flex;
