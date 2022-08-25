@@ -14,6 +14,7 @@ export const StyledProduct = styled.main`
         }
 
         .gallery-btn {
+            pointer-events: auto;
             position: absolute;
             top: 50%;
             height: 2.5rem;
