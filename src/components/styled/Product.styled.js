@@ -4,6 +4,10 @@ export const StyledProduct = styled.main`
     
 /* MOBILE STYLES */
 
+.lightbox {
+    display: none;
+}
+
 /* GALLERY STYLES */
     .gallery {
         position: relative;
