@@ -4,8 +4,24 @@ export const StyledNav = styled.nav`
     position: relative;
     background: white;
 
+    .darkscale {
+        position: absolute;
+        top: -1.5rem;
+        left: -2rem;
+        height: 110vh;
+        width: 110vh;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 4;
+    }
+
     #menu {
+        position: relative;
         margin-right: 1rem;
+        z-index: 5;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     .primary__nav {
@@ -16,12 +32,16 @@ export const StyledNav = styled.nav`
         background: white;
         padding: 1.5rem;
         width: 15rem;
-        height: 100vh;
+        height: 110vh;
         list-style: none;
         z-index: 5;
 
         #close {
             margin-bottom: 1rem;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .nav-item {

@@ -5,7 +5,7 @@ import CartItem from "./CartItem";
 
 export default function Cart({ cartContents, removeFromCart, openCheckout }) {
 
-
+// OPEN CHECKOUT MODAL
     function handleOpenCheckout(e) {
         e.preventDefault()
         openCheckout()

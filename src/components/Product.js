@@ -16,14 +16,17 @@ export default function Product({ addToCart }) {
     const currentPrice = (retailPrice * (1 - discount)).toFixed(2);
     const productImgs = [img1, img2, img3, img4];
 
+    // IMG CURRENTLY DISPLAYED
     const [activeImg, setActiveImg] = useState(productImgs[0]); 
+    // INDEX OF CURRENTLY DISPLAYED IMG
     const [activeIndex, setActiveIndex] = useState(0);
-
+    // QUANTITY OF ITEM TO ADD TO CART
     const [quantityCount, setQuantityCount] = useState(1);
-
+    // LIGHTBOX OPEN OR CLOSED
     const [lightboxActive, setLightboxActive] = useState(false);
 
 
+    // SWITCH TO NEXT IMAGE
     function nextImg() {
         const currentIndex = activeIndex;
         const newImgIndex = currentIndex + 1;
@@ -37,6 +40,7 @@ export default function Product({ addToCart }) {
         }
     }
 
+    // SWITCH TO PREVIOUS IMAGE
     function prevImg() {
         const currentIndex = activeIndex;
         const newImgIndex = currentIndex - 1;
@@ -50,6 +54,7 @@ export default function Product({ addToCart }) {
         }
     }
 
+    // CHANGE QUANTITY TO ADD TO CART
     function increaseQuantity() {
         const prevQuantity = quantityCount;
         setQuantityCount(prevQuantity + 1);
@@ -90,8 +95,8 @@ export default function Product({ addToCart }) {
        { lightboxActive &&  <div className="lightbox">
             <section className="gallery">
                 <span onClick={closeLightbox} class="lightbox-close">x</span>
-                <button onClick={prevImg} className="gallery-btn prev" aria-label="previous image"><svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" strokeWidth="3" fill="none" fillRule="evenodd"/></svg></button>
-                <button onClick={nextImg} className="gallery-btn next" aria-label="next image"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" strokeWidth="3" fill="none" fillRule="evenodd"/></svg></button>
+                <button onClick={prevImg} className="gallery-btn prev" aria-label="previous image"><svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="currentColor" strokeWidth="3" fill="none" fillRule="evenodd"/></svg></button>
+                <button onClick={nextImg} className="gallery-btn next" aria-label="next image"><svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="currentColor" strokeWidth="3" fill="none" fillRule="evenodd"/></svg></button>
                 <img onClick={displayLightbox} className="product-img" src={activeImg} alt="Product image" />
                 <ul className="thumbnails">
                     {

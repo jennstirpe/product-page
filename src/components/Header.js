@@ -8,7 +8,7 @@ import Checkout from './Checkout';
 
 export default function Header({ cartContents, itemCount, removeFromCart }) {
   const [ cartActive, setCartActive] = useState(false);
-  const [ checkoutActive, setCheckoutActive] = useState(true);
+  const [ checkoutActive, setCheckoutActive] = useState(false);
 
   function openCheckout() {
     setCheckoutActive(true);

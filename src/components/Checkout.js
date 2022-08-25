@@ -1,10 +1,8 @@
 import { StyledCheckout } from "./styled/Checkout.styled";
-import CartItem from "./CartItem";
-import productImg from "../images/image-product-1.jpg";
 
 export default function Checkout({ closeCheckout }) {
 
-
+// CLOSE CHECKOUT MODAL
     function handleContinueShopping(e) {
         e.preventDefault()
         closeCheckout()

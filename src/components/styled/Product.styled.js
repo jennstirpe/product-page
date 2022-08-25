@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const StyledProduct = styled.main`
     
+/* MOBILE STYLES */
 
+/* GALLERY STYLES */
     .gallery {
         position: relative;
 
@@ -17,12 +19,15 @@ export const StyledProduct = styled.main`
             width: 2.5rem;
             border-radius: 50%;
             border: none;
-
+            
             &:hover {
                 cursor: pointer;
-                background-color: #ddd;
+                
+                svg {
+                    color: ${({theme}) => theme.mainAccent};
+                }
+                
             }
-
         }
 
         .next {
@@ -31,8 +36,8 @@ export const StyledProduct = styled.main`
             svg {
                 margin: .15rem 0 0 .1rem;
             }
-
         }
+
         .prev {
             left: 1rem;
             
@@ -46,6 +51,8 @@ export const StyledProduct = styled.main`
         }
     }
 
+
+/* PRODUCT DETAIL STYLES */
 
     .product-details {
         padding: 2rem;
@@ -104,6 +111,7 @@ export const StyledProduct = styled.main`
             }
         }
 
+/* ADD-TO-CART STYLES */
         .purchase {
             
             .quantity {
@@ -176,6 +184,7 @@ export const StyledProduct = styled.main`
     }
  
 
+/* DESKTOP STYLES */
     @media (min-width: 800px) {
         width: 100%;
         margin-top: 5rem;
@@ -183,6 +192,7 @@ export const StyledProduct = styled.main`
         display: flex;
         justify-content: center;
 
+/* GALLERY STYLES */
         .gallery {
             height: 32rem;
             width: 50%;
@@ -242,11 +252,10 @@ export const StyledProduct = styled.main`
                     border: 2px solid ${({theme}) => theme.mainAccent};
                     border-radius:.75rem;
                 }
-
             }
         }
 
-
+/* LIGHTBOX STYLES */
         .lightbox {
            position: absolute;
            top: 0;
@@ -268,7 +277,7 @@ export const StyledProduct = styled.main`
 
                &:hover {
                    cursor: pointer;
-                   opacity: .75;
+                   color: ${({theme}) => theme.mainAccent};
                }
            }
 
@@ -286,7 +295,7 @@ export const StyledProduct = styled.main`
             }
         }
         
-
+/* PRODUCT DETAIL STYLES */
         .product-details {
             width: 50%;
             max-width: 31rem;
@@ -323,6 +332,7 @@ export const StyledProduct = styled.main`
                 }
             }
 
+/* ADD-TO-CART STYLES */
             .purchase {
                 margin-top: 1.5rem;
                 display: flex;

@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 
-// DELETE AFTER TESTING
-import testImg from  "./images/image-product-3-thumbnail.jpg";
-
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./themes";
 
@@ -14,24 +11,8 @@ import Product from "./components/Product";
 const LOCAL_STORAGE_KEY = "ecommerceSite.cart";
 
 function App() {
-  const [ cartContents, setCartContents ] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? [ 
-    {
-      id: "testId",
-      name: "testName",
-      price: 100,
-      quantity: 2,
-      img: testImg
-    },
-    {
-      id: "testId2",
-      name: "testName2 test testName testNaming",
-      price: 150,
-      quantity: 1,
-      img: testImg
-    }  
-  ]);
+  const [ cartContents, setCartContents ] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
 
-  // const [ cartContents, setCartContents ] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? []);
   const [ itemCount, setItemCount ] = useState(0);
 
   useEffect(() => {
@@ -41,6 +22,8 @@ function App() {
     getItemCount();
   }, [cartContents])
 
+
+  // Add up total items in cart
   function getItemCount() {
     let itemQuantities = [];
     let sum = 0;
@@ -86,10 +69,10 @@ function App() {
     <ThemeProvider theme={lightTheme}>
       <>
           <GlobalStyles />
-            
-            <Header cartContents={cartContents} itemCount={itemCount} removeFromCart={removeFromCart} />
 
-            <Product addToCart={addToCart} />
+              <Header cartContents={cartContents} itemCount={itemCount} removeFromCart={removeFromCart} />
+
+              <Product addToCart={addToCart} />
             
       </>
     </ThemeProvider>
