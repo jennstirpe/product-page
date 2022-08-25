@@ -4,13 +4,10 @@ export const StyledProduct = styled.main`
     
 /* MOBILE STYLES */
 
-.lightbox {
-    display: none;
-}
-
 /* GALLERY STYLES */
     .gallery {
         position: relative;
+        pointer-events: none;
 
         .thumbnails {
             display: none;
@@ -198,6 +195,7 @@ export const StyledProduct = styled.main`
 
 /* GALLERY STYLES */
         .gallery {
+            pointer-events: auto;
             height: 32rem;
             width: 50%;
             max-width: 31rem;
